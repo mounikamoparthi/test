@@ -1,0 +1,9 @@
+/*Write all of your CSS here*//*Write all of your CSS here*/
+
+table, th, td {
+   border: 1px solid black;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+}

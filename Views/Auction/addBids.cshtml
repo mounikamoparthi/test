@@ -1,0 +1,13 @@
+<a href = "/show">Home</a>
+    <a asp-controller="User" asp-action="logout"><button>Logout</button></a>
+    
+
+
+    <h3>@ViewBag.auctionrecord.ProductName</h3>
+    <h4> CreatedBy: @ViewBag.auctionrecord.users.UserName</h4>
+ 
+<form asp-controller="Auction" asp-action="PostBids" asp-route-auctionid = "@ViewBag.auctionrecord.AuctionsId" method="post">
+    <label for='Amount'>Amount: </label>
+        <input type='number' name='Amount'>
+    <button type='submit' class='btn btn-default'>Bid!</button>
+</form>

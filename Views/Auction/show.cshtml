@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <link rel="stylesheet" href="./../../wwwroot/css/site.css" />
+</head>
+
+<body>
+<p> Hi @ViewBag.name</p>
+<a href="/logout">Log Out</a>
+
+<h3> Current Auctions </h3>
+
+@{
+                if(ViewBag.status != null){
+                    <p>@ViewBag.status[0]</p>
+                }
+            }
+
+<table style = width: 100%>
+    <tr>
+        <th> Product </th>
+        <th> Seller </th>
+        <th> TopBid </th>
+        <th> Time Remaining </th>
+        <th> Action </th>
+    </tr>
+
+@{
+    Timediff difft= new Timediff();
+}
+
+ @foreach(var auction in @ViewBag.auctions){
+    
+     var timeRem= difft.TimeDiff(@auction.EndDate);
+        <tr> 
+            <td><a href = "test/addBids/@auction.AuctionsId"> @auction.ProductName </td>
+            <td> @auction.users.UserName</td>
+            <td> @auction.users.WalletAmount</td>
+            <td> @timeRem</td>          
+            @if(@auction.UsersId == @ViewBag.UserId){
+              
+                 <td><a href="test/deleteauction/@auction.AuctionsId">Delete</a></td>
+            }
+
+      </tr>
+      }  
+</table>
+
+</br></br>
+<a href="/create"><button>New Auction</button></a>
+</body>
+</html>

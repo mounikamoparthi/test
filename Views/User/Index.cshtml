@@ -1,0 +1,63 @@
+<html>
+    <title>  Registration </title>
+    <body>
+        @{
+            ViewData["Title"] = "Register";
+        }
+    
+    @model test.Models.RegisterViewModel
+        <h3> Registration </h3>
+
+        <form asp-controller="User" asp-action="Register" method="post">
+                <p>
+                <label asp-for="FirstName">FirstName:</label>
+                <input asp-for="FirstName" id ="FirstName" name="FirstName">
+                <span asp-validation-for="FirstName"></span>
+                </p>
+                <p>
+                <label asp-for="LastName">LastName:</label>
+                <input asp-for="LastName" id ="LastName" name="LastName">
+                <span asp-validation-for="LastName"></span>
+                </p>
+                <p>
+                <label asp-for="UserName">UserName:</label>
+                <input asp-for="UserName" id ="UserName" name="UserName">
+                <span asp-validation-for="UserName"></span>
+                </p>
+                <p>
+                <label asp-for="Password">Password:</label>
+                <input asp-for="Password" type= "password" name="Password">
+                <span asp-validation-for="Password"></span>
+                </p><p>
+                
+                <label asp-for="PasswordConfirmation">Confirm password:</label>
+                <input asp-for="PasswordConfirmation" type= "password" name="PasswordConfirmation">
+                <span asp-validation-for="PasswordConfirmation"></span>
+                <p></p>
+
+                <button type="submit">Submit </button>            
+            </form>
+
+            <h3> Login </h3>
+             <form asp-controller="User" asp-action="PostLogin" method="post">
+                </p>
+                <p>
+                <label asp-for="UserName">UserName:</label>
+                <input asp-for="UserName" type = "UserName" name="UserName">
+
+                </p><p>
+                <label asp-for="Password">Password:</label>
+                <input asp-for="Password" type= "password" name="Password">
+                </p><p>
+
+                <button type="submit">Submit </button>
+            </form>
+            @{
+                if(ViewBag.Errors != null){
+                    <p> @ViewBag.Errors[0]</p>
+                }
+            }
+                            
+
+</body>
+</html>
